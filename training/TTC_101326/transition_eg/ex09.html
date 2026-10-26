@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. White has a magnificent bishop on d6 and a queen on d2. Black's queen is on a4 and bishop on c4 is hanging. What is the tactical shot that White should play?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Win material: Rxc4</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Capture the bishop on c4 with the rook — the bishop is undefended and hanging.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Bishop retreat: Bc5</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Retreat the bishop to c5 to protect the d6-bishop and await developments.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Queen trade: Qxa4</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Nope — Qxa4 doesn't work. Instead play Bxf5 to win a pawn.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,12 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (Rxc4!)</strong> wins a piece outright. The bishop on c4 is undefended and the rook can simply
+ take it. After …dxc4 Qxd8+ and White wins the queen or the endgame is completely winning. If Black doesn't
+ recapture, White is just up a piece.</p>
+ <p><em>Plan B</em> (Bc5) is passive and makes no sense when you can win a piece immediately. <em>Plan C</em>
+ misidentifies the position — Rxc4 is the simple, forcing move.</p>
+ <p>Lesson: Before making any positional move, always look for free material. An undefended piece is a gift.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +139,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '2r2rk1/8/3B1n1p/pp1p1p2/q1b5/5P1B/3Q1K1P/2R2R2 w - - 0 27';
-const HL  = [];
+const HL  = ["c1", "c4"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'teg-9';

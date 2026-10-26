@@ -87,40 +87,45 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">Black has just played …c5–c4, leaving the en passant possibility on d6. White has a solid setup with the queen on d3 and knight on f3. What is the best plan?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — En passant: cxd6 e.p.</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Capture en passant to break up Black's pawn center and open the c-file for the rook.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Central expansion with e4</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Push e4 to challenge the d5 pawn directly and open the position for the bishop on c1.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Quiet development: Be3</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Develop the bishop to e3, supporting the d4 square and preparing to challenge Black's queenside.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p>The en passant on d6 is tempting but gives Black a passed d-pawn after …Bxd6 — not what White wants.
+ <strong>Plan B (e4)</strong> is the engine move: it directly challenges Black's pawn duo on c4/d5, opens lines for
+ the c1-bishop, and grabs space in the center where White is better developed.</p>
+ <p><em>Plan A</em> (cxd6 e.p.) helps Black: …Bxd6 leaves Black with an active bishop and a strong d5 pawn.
+ <em>Plan C</em> (Be3) is too passive — it allows Black to consolidate with …Nc6–e7–f5 and a comfortable game.</p>
+ <p>Lesson: En passant isn't always good. Ask whether capturing helps the opponent before you take.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +139,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'rn1q1rk1/4b1pp/1p2p3/2pp4/8/2PQ1NP1/3PPPPP/R1B2RK1 w - d6 0 13';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["e2", "e4", "d3"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'tmg-5';
 

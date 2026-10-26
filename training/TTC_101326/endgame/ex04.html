@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. Black has two extra passed pawns (c4 and d5) and a queen on b4. White has only the queen on c1 and pawn on h2 to fight with. What is White's only practical chance?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Perpetual check: Qg5+</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Begin perpetual check with Qg5+ and try to force a draw by repetition.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Attack the pawns: Qxc4</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Capture the c4-pawn to reduce Black's material and fight on.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Queen trade: Qc3+</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Play Qc3+ Qxc3+ Kxc3 and enter a king and pawn endgame.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,13 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p>White is lost if Black queens, so <strong>Plan A (Qg5+)</strong> — beginning a sequence of checks — is the
+ only drawing try. White must find perpetual check: Qg5+ Kf7 Qf5+ Ke7 Qe5+ Kd7 Qd4+ and if Black's king keeps
+ running, White follows with checks and the queen can never escape.</p>
+ <p><em>Plan B</em> (Qxc4) gives Black time to play …Qb1+ and force the king away from the pawns, then Black
+ queens. <em>Plan C</em> (Qc3+) forces a queen trade but after Kxc3 Black's king escorts the d-pawn to queen.</p>
+ <p>Lesson: In a lost endgame, find the drawing resource first. Perpetual check is chess's great equalizer — use it
+ before the position becomes hopeless.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +140,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '8/6k1/8/3p3p/1qp5/8/5K1P/2Q5 w - - 0 37';
-const HL  = [];
+const HL  = ["c1", "g5"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'end-4';

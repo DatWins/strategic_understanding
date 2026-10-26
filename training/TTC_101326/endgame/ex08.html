@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">Black to move. What is the best plan here?</p>
+      <p class="question">Black to move. The knight on g3 is giving check to White's king on h2. After the king moves, what is Black's strongest follow-up to press the advantage?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Rook to b1</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">After the king moves, play …Rb1 to create a back-rank threat and win material.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Knight to e2</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">After the king moves, play …Ne2 to fork the queen on d2 and threaten the White pawns.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Pawn push: h3</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Advance the h4-pawn to h3 to create a connected passed pawn threat.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p>After the king moves from h2 (say Kg1 or Kh1), <strong>Plan B (…Ne2+!)</strong> is devastating. The knight
+ jumps to e2, forking the king and the queen on d2. White must give up the queen to stop immediate checkmate
+ threats, leaving Black with overwhelming material.</p>
+ <p><em>Plan A</em> (…Rb1) is too slow — White plays Qxb1 and simplifies away from danger. <em>Plan C</em>
+ (…h3) is also strong, but the knight fork on e2 wins the queen immediately.</p>
+ <p>Lesson: A knight that delivers check also gains a tempo — use that tempo to set up a fork or another
+ decisive threat.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '1r4k1/6b1/6p1/1Np5/P6p/6n1/3Q1PPK/8 b - - 0 31';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["g3", "e2"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'end-8';
 

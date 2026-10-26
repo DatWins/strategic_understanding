@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White has castled safely while Black's king remains on e8. White's structure is solid but the pieces need active play. What is the right way to generate an advantage?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Open with e4</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Push e4 to challenge Black's d5 pawn, open the long diagonal for the bishop on g2, and create central tension.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Queenside expansion: c4</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Play c4 to challenge the d5 pawn from the flank and create an isolated or backward pawn for Black.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Regroup with Nf1–e3</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Maneuver the knight to e3 to support d5 and prepare a kingside attack with f4.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,11 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (e4)</strong> is the engine move. It immediately confronts Black's center — after exd5 the d-file
+ opens for the rook, and after …dxe4 Nxe4 White's pieces flood in. The g2-bishop wakes up on the long diagonal.</p>
+ <p><em>Plan B</em> (c4) is slower — Black can simply play …dxc4 and get good piece activity. <em>Plan C</em>
+ (Nf1–e3) is too passive and surrenders the initiative; Black will complete development and neutralize White's edge.</p>
+ <p>Lesson: Use your king safety advantage immediately — open the center before the opponent finishes developing.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +138,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r3k2r/3nqpp1/2p1pnp1/3p4/8/7P/1PPNPPBP/R2Q1RK1 w kq - 0 13';
-const HL  = [];
+const HL  = ["e2", "e4", "d5", "g2"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'tmg-7';

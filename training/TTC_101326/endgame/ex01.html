@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. Black has a dominant rook on e2 attacking both White's h2 and g2 pawns, while the Black king and pawns dominate the queenside. White is under pressure. What is the best defensive try?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Activate king: Kf1</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Move the king to f1 to escape the rook's x-ray and try to coordinate with the pawns.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Pawn advance: h4</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Push h4 to begin a race and hope the passed pawn can distract Black.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Rook defence illusion</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">White has no rook — accept the loss gracefully with king centralization.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,13 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p>In this endgame White is essentially lost — Black's rook on e2 controls the second rank and the queenside
+ pawns are too far advanced. <strong>Plan A (Kf1)</strong> is the only try: activating the king to escape the
+ x-ray on the g-file and try to create counterplay with the g- and h-pawns advancing.</p>
+ <p><em>Plan B</em> (h4) is too slow — after …Rxg2 White's pawns all fall. The king must be activated
+ immediately in all rook endgames.</p>
+ <p>Lesson: In rook endgames, the king is an active piece. An inactive king is the most common cause of defeat.
+ Activate it as early as possible.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +140,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '8/6kp/2p5/2pp4/8/8/4r1PP/6K1 w - - 0 37';
-const HL  = [];
+const HL  = ["g1", "f1"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'end-1';

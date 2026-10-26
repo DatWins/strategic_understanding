@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">Black to move. What is the best plan here?</p>
+      <p class="question">Black to move. Black has a knight on b4 eyeing d3, a queen on d5 facing the White queen on f3, and active rooks. What is Black's most forceful plan in this tense position?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Knight advance: Nd3</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Play …Nd3 to fork White's queen on f3 and rook on f1, winning material.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Queen trade: Qxf3+</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Exchange queens with …Qxf3+ and follow up with a favorable endgame.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Rook activity: Ra1</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Swing the rook to a1 to create back-rank pressure and cut off the White king.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,12 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (…Nd3!)</strong> is a clean fork. The knight jumps to d3, attacking the queen on f3 and the rook
+ on f1 simultaneously. After Qxd5 Nxf1 Kxf1 cxd5, Black has won the exchange and kept a strong pawn on d5. The
+ knight outpost on d3 also dominates the entire position.</p>
+ <p><em>Plan B</em> (…Qxf3+) simplifies but Black gives up the active queen when the fork wins material for free.
+ <em>Plan C</em> (…Ra1) is too slow — White simply defends with Rb2 or exchanges queens favorably.</p>
+ <p>Lesson: A knight fork that wins material is the highest priority. Don't exchange when you can win.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +139,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '5rk1/8/r1p1p2p/p1PqN3/1n6/4PQ2/1P3PKP/1R3R2 b - - 0 23';
-const HL  = [];
+const HL  = ["b4", "d3", "f3"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'teg-2';

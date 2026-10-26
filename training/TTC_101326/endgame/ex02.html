@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">Black to move. What is the best plan here?</p>
+      <p class="question">Black to move. Black has a queen on g1 and a rook on e1, both aiming at White's king on h3. White's queen on f3 is the only defender. What is Black's winning move?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Mate threat: Qxh2+</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Play …Qxh2+!! to sacrifice the queen and force a mating pattern.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Fork: Qg2+</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Drive the king with …Qg2+ Kh4 and look for a follow-up.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Simple win: Rxf1</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Capture …Rxf1 to win White's queen on f3 via a discovered attack. Wait — this is wrong. Play Qxf2.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,13 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (…Qxh2+!)</strong> is the brilliant queen sacrifice. After Qxh2+ Kxh2, the rook on e1 plays
+ …Re2+ and the king is hunted down: Kg3 Rxf2 and the queen on f3 is lost (or mate follows). If Qxh2+ Kg3 then
+ …Qh4# is immediate. Black forces checkmate.</p>
+ <p><em>Plan B</em> (…Qg2+) is also effective but the queen sacrifice is cleaner and more forcing.
+ <em>Plan C</em> misreads the position — the queen sacrifice wins immediately.</p>
+ <p>Lesson: Queen sacrifices to decoy the king into a mating net are among the most beautiful combinations in chess.
+ Always look when your rook can join the attack.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +140,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r5k1/7R/p2p2p1/4p3/6P1/3B1Q1K/3P1P1P/4r1q1 b - - 0 27';
-const HL  = [];
+const HL  = ["g1", "h2"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'end-2';

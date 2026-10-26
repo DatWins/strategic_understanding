@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">Black to move. What is the best plan here?</p>
+      <p class="question">Black to move. Black has two powerfully-placed knights threatening the bishop on b3 and the White king on d1 is exposed. White's queen on h4 is far from the action. What is Black's most forceful continuation?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Knight fork: Nc3+</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Play …Nc3+ to deliver check and fork the king and queen with the knight.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Bishop capture: Bxf1</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Capture Bxf1 to win the exchange and maintain material advantage in a chaotic position.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Central push: …e5</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Advance the e-pawn to e5 to grab space and threaten …e4 kicking the knight on f3.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,12 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (…Nc3+!)</strong> is forcing and decisive. After Nc3+ Ke1 (Kc1 Nxb1), the knight forks the king
+ and the rook on a1, and Black also threatens …Nxa2. The king on d1 is exposed and the queen on h4 is completely
+ useless in the defense.</p>
+ <p><em>Plan B</em> (…Bxf1) wins material but gives White time to reorganize; the check is always more forcing.
+ <em>Plan C</em> (…e5) is too slow — White can play Ng5 threatening Qxf7# and suddenly Black is under pressure.</p>
+ <p>Lesson: An exposed king plus a powerfully-placed knight equals a fork waiting to happen. Calculate checks first.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +139,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r3k3/5p2/2n1q1p1/5p2/2n4Q/1BPb1N2/3P1PPP/R1BK4 b kq - 0 19';
-const HL  = [];
+const HL  = ["c4", "c3"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'mid-4';

@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">Black to move. What is the best plan here?</p>
+      <p class="question">Black to move. White's queen on f6 is very aggressive and threatens to penetrate further. Black has a queen on b6 and a bishop on g6. What is the most practical plan for Black to neutralize White's initiative?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Trade queens: Qxf6</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Exchange queens with …Qxf6 to neutralize White's attack and reach a more manageable endgame.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Counterattack: Qxb2</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Play …Qxb2 to win a pawn while threatening the rook on d1.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Bishop attack: Bxe4</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Capture the rook's support pawn... check the board. Attack Bxe3 ... assess what's there.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,14 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (…Qxf6!)</strong> is the practical choice. Trading queens neutralizes White's dangerous queen
+ on f6 and leads to an endgame where Black's extra pawns on the queenside (b5, c5, d5, c6) are a real advantage.
+ The bishop on g6 remains active in the endgame.</p>
+ <p><em>Plan B</em> (…Qxb2) is greedy — after Re2 the queen is trapped or White gets a strong attack on the
+ b-file. <em>Plan C</em> misreads the position; the key principle is that trading an attacking queen for a defending
+ queen when you have material is winning.</p>
+ <p>Lesson: Don't be afraid to trade queens when doing so simplifies to a winning endgame. Material + simplification
+ often beats complications.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +141,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r5k1/3r3p/1qp1pQb1/1ppp4/8/2N1R3/1P1P1PPP/3R2K1 b - - 0 24';
-const HL  = [];
+const HL  = ["b6", "f6"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'teg-7';

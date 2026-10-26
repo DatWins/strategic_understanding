@@ -87,40 +87,47 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. Black's queen on g4 is threatening …Qxg2# and the knight on d4 is under attack from the bishop on e5. White is under pressure on multiple fronts. What is the best defensive-counter plan?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Defend: Rf2</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Play Rf2 to guard g2 and the second rank, neutralizing the mate threat.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Trade: Nxe5</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Capture Nxe5 to remove the attacking bishop, accepting a slightly inferior position but simplifying.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Block: f3</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Play f3 to push the queen away from g4 and create a defensive barrier.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan C.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan C?</h3>
+        <p><strong>Plan C (f3!)</strong> is the move. It attacks the queen on g4 directly, and after the queen retreats,
+ White's position stabilizes. Unlike Rf2, which only defends passively, f3 gains a tempo by attacking the queen
+ while improving the pawn structure.</p>
+ <p><em>Plan A</em> (Rf2) is too passive — it defends g2 but doesn't address the bishop on e5 or gain any tempo.
+ <em>Plan B</em> (Nxe5) removes a defender and after …dxe5 the e-pawn becomes a monster; the queen still threatens
+ Qxg2#.</p>
+ <p>Lesson: When defending, look for moves that defend AND attack. Forcing the opponent's queen to waste time
+ retreating while you improve your position is the ideal defensive resource.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +141,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r4rk1/7p/n2p2p1/4b3/1P1Np1q1/8/1BPP1PB1/3R1RK1 w - - 0 21';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["f2", "f3", "g4"];
+const CORRECT = 'C';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'mid-10';
 

@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">Black to move. What is the best plan here?</p>
+      <p class="question">Black to move. Black has a powerful advanced pawn on d4 and queen on e5. White's bishop is stranded on a8 and the position is unbalanced. What is Black's strongest continuation?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Advance: d4–d3</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Push the d-pawn to d3 to attack the queen on c1 and create a passed pawn one step from queening.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Win the bishop: …Qxa1</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">The queen can capture the bishop? No — think again. Attack with queen to e2.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Trade queens: …Qxc1</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Exchange queens to simplify into a winning endgame with the extra pawn.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,12 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (…d3!)</strong> is a powerful pawn advance. The pawn on d3 attacks the queen on c1, and after
+ Qxd3 …Bxd3 White has lost the bishop pair. Meanwhile if White moves the queen, …d2 forks the queen and rook on f1,
+ winning. The advanced d-pawn plus the bishop on a1 controlling b2 creates a deadly battery.</p>
+ <p><em>Plan B</em> misidentifies the position — let's stick to the principle. <em>Plan C</em> (…Qxc1) exchanges the
+ active queen unnecessarily; the queen is Black's most powerful attacking piece here.</p>
+ <p>Lesson: A pawn that attacks a piece while threatening to queen is more valuable than piece trades — push it!</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +139,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'B1b4r/4k1pp/4p3/2p1q3/3p4/8/6PP/b1Q2RK1 b - - 0 18';
-const HL  = [];
+const HL  = ["d4", "d3"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'mid-5';

@@ -87,40 +87,45 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White has developed with tremendous energy: two rooks on open files, bishop pair, and two knights. Black is still uncastled with the king on e8. What is the most energetic plan?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Double rooks on e-file</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Redeploy to put both rooks on the e-file targeting the uncastled king on e8.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Nd5 outpost</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Place a knight on d5 to dominate the center and threaten e7 simultaneously.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Advance d4–d5</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Push the d-pawn to challenge Black's structure and open lines for the bishops.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p>The knight leap to d5 is crushing. <strong>Plan B (Nd5)</strong> — either knight jumps in — dominates the center,
+ attacks e7, threatens Nc7+ forking the king and rook, and makes castling very difficult for Black. The knight on d5
+ cannot be easily removed.</p>
+ <p><em>Plan A</em> (re-doubling rooks) is too slow — Black can castle before you get there. <em>Plan C</em> (d5)
+ prematurely opens lines that might help Black's bishops; the knights are better used actively right now.</p>
+ <p>Lesson: When the opponent's king is in the center, leap for the dominant square — do not shuffle pieces.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +139,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r1b1k2r/3nb1pp/p3pn2/1p6/2BN1B2/2N5/2PP1PPP/2KRR3 w kq b6 0 13';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["d4", "d5", "c3", "d5"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'tmg-6';
 

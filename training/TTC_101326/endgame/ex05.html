@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">Black to move. What is the best plan here?</p>
+      <p class="question">Black to move. Black has two rooks and a powerfully-placed knight on f5, plus advanced pawns on e4 and h4. White has two rooks and a bishop on d2. What is Black's winning plan?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Pawn advance: e3+</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Push …e3+ to force the king back, and the pawn becomes unstoppable.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Knight fork: Nd4</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Jump the knight to d4 to fork White's rooks on b5 and b7.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Rook check: Rxd2+</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Play …Rxd2+ to win the bishop and simplify with a material advantage.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan C.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan C?</h3>
+        <p><strong>Plan C (…Rxd2+!)</strong> is the most forcing. After Rxd2+ Kxd2 (Ke3 e3 and the e-pawn queens),
+ Black has won the bishop and the position. With two rooks vs two rooks and no bishop, Black's connected passed
+ pawns on e4/h4 are decisive.</p>
+ <p><em>Plan A</em> (…e3+) is also very strong, but after Ke3, the king blockades the pawn and it becomes
+ complicated. <em>Plan B</em> (…Nd4) forks the rooks but after Rxd4 exd4 White has won the knight for a rook.</p>
+ <p>Lesson: When you can win a piece with a check (forcing the king to capture), it's usually the cleanest path
+ to victory.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '2r5/1R6/3p1k2/1R3n1p/4p2p/8/1P1B1KPP/2r5 b - - 0 34';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["c1", "d2"];
+const CORRECT = 'C';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'end-5';
 

@@ -87,40 +87,47 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. The knight is already on f6 and the queen on f4. Black's king is on g7. White has a forcing combination here. Can you find the winning plan?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Dominate with Rd6</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Swing the rook to d6 to pressure the queen on b6 and set up a back-rank mate.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Queen check: Qh6+</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Play Qh6+ forcing Kf7 and then build the attack with Rg4.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Knight retreat and regroup</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Retreat the knight to e4 to regroup and prepare a discovered attack.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p><strong>Plan B (Qh6+!)</strong> is the forcing move. After Qh6+ Kf7 (forced, since the king can't go to f8 due
+ to Nxh7+ winning the queen), White plays Rg4! threatening Rg7#. The black queen cannot both defend g7 and stay
+ active — White wins decisively.</p>
+ <p><em>Plan A</em> (Rd6) is logical but slow — Black plays …Qb4 attacking the rook and creates counterplay.
+ <em>Plan C</em> (retreating the knight) throws away the initiative; the knight on f6 is already in a winning
+ position.</p>
+ <p>Lesson: When you have a check that disrupts the king's defense, play it and look for the follow-up before the
+ king gets organized.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +141,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r4r2/6k1/1qp2Np1/3p1b2/3R1Q2/8/1PP2P1P/5RK1 w - - 0 21';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["f4", "h6", "f6"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'mid-2';
 

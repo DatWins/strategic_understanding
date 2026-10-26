@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. White has two aggressive knights on e5 and f5, a queen on g3, and doubled rooks. Black's knight is on e6. What is the most forcing continuation for White?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Knight capture: Nxe6</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Take the knight on e6 with Nxe6, doubling Black's pawns and winning material.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Tactical blow: Nxh6</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Sacrifice the knight on h6 to open the h-file toward Black's king.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Queen attack: Qg7+</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Give check with Qg7+ to disrupt Black's king and look for a follow-up.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,14 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (Nxe6)</strong> is the straightforward material win. After Nxe6 Rxe6 (or Qxe6 Nxe6 and Black
+ has a doubled pawn), White has won a piece for only a pawn. The remaining knight on f5 stays dominant, and with
+ two rooks and the queen, White's attack is overwhelming.</p>
+ <p><em>Plan B</em> (Nxh6) sacrifices a knight but after …gxh6 Qxh6+ Kg8 the attack is real but requires precise
+ calculation. The simple piece win is more reliable. <em>Plan C</em> (Qg7+) only checks but after …Kxg7 there
+ is no clear follow-up advantage.</p>
+ <p>Lesson: When you have an immediate piece capture that wins cleanly, take it. Don't look for sacrifices when
+ simple material gain wins the game.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +141,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '4r2k/1bq5/2p1n2p/1pp1NN2/2p1pP2/6Q1/1P1P2PP/3RR1K1 w - - 0 26';
-const HL  = [];
+const HL  = ["e5", "e6", "g3"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'end-6';

@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White has centralized the queen on e4 after an IQP structure dissolved. Black's bishop on b7 is blocked and the knight on f6 is purely defensive. What is White's best strategic plan?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Queenside advance</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Play b4–b5 to open lines for the bishops and cramp Black's queenside, exploiting the passive bishop on b7.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Central break with e4</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Push e2–e4 to seize the center, open the diagonal for the bishop on g2, and challenge the knight on f6.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Trade the queen</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Exchange queens with Qxe6 to simplify into a superior endgame with two active bishops.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p>With the queen on e4 and a bishop pair aimed at the center, <strong>Plan B (e2–e4)</strong> is the engine of the position.
+ The move e4 stakes a broad pawn center, opens the g2–bishop's diagonal toward b7, and dislodges the knight from f6
+ (after e5 it must retreat, losing its defensive role).</p>
+ <p><em>Plan A</em> (b4–b5) is too slow — Black can close the queenside with …b5 themselves, and the bishops need open
+ diagonals, not a locked flank. <em>Plan C</em> (Qxe6) trades White's best piece and eases Black's defence; after
+ …fxe6 Black's center pawns are actually strengthened.</p>
+ <p>Lesson: When you have a bishop pair and a lead in development, open the position before the opponent consolidates.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r2q1rk1/1b2b1pp/1pp1pn2/8/4Q3/5N2/1P2PPBP/2BR1RK1 w - - 0 13';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["e2", "e4", "g2", "e4"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'tmg-1';
 

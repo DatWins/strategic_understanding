@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. White has two knights (a4 and b3) and a bishop on c4 against Black's knight on g4 and aggressively placed pawns. Black's queen is on d8 and king on f8. What is the clearest winning plan?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Queen check: Qa8+</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Play Qa8+ Ke7 and win the queen on d8 with discovered attack.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Knight capture: Nxb5</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Win a pawn with Nxb5 and improve material count heading into the endgame.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Bishop activity: Bd5</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Centralize the bishop to d5 to dominate the center and restrict Black's knights.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,12 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (Qa8+!)</strong> is a queen check that wins the queen. After Qa8+ Ke7 (forced), White plays
+ Qxd8+ Kxd8 and White has traded queens while winning a full piece (or the reverse — the Black queen on d8 is
+ captured). White is then ahead a piece in a simplified endgame.</p>
+ <p><em>Plan B</em> (Nxb5) wins only a pawn — far less than a queen. <em>Plan C</em> (Bd5) is fine positionally
+ but ignores the immediate queen win available.</p>
+ <p>Lesson: Always look for forcing moves that win major material before playing positional improvements.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +139,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '3q1k2/Q7/3pp3/1p6/NpB1p1n1/1N6/3P2PP/6K1 w - - 0 24';
-const HL  = [];
+const HL  = ["a7", "a8", "c4", "d5"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'teg-6';

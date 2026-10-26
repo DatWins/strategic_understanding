@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">Black to move. What is the best plan here?</p>
+      <p class="question">Black to move. Black has a knight on e2 attacking White's rooks on d1 and f1, and a rook on b2 deep in White territory. White has a knight on c7 forking the queen and rook. How does Black navigate this sharp position?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Fork defense: Qxc7</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Capture the knight on c7 with the queen to eliminate the fork threat.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Double attack: Nxf1</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Play …Nxf1 to win the rook, and then after Rxf1 the knight retreats with extra material.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Counter-fork: Nxd1</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Capture …Nxd1 on the other rook, winning material and leaving Rxd1 Rxd7 with Black ahead.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan C.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan C?</h3>
+        <p>The position is a double-edged tactical fight. <strong>Plan C (…Nxd1)</strong> wins the rook on d1. After
+ Rxd1, Black plays …Rxd7 Rxd7 and has won the exchange (rook for knight). Black's rook on b2 remains active and
+ Black has a material advantage going into the endgame.</p>
+ <p><em>Plan A</em> (…Qxc7) defends but after Nxc7 is just recapturing a piece White took — it's equal, not winning.
+ <em>Plan B</em> (…Nxf1) also wins material but after Rxf1 the knight is still hanging and White has Rxd7.</p>
+ <p>Lesson: When in a tactical melee, calculate all captures carefully. The one that wins the most material with
+ the fewest side effects is the right choice.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '3q2k1/2Nr1pbp/6p1/2Q5/8/8/1r2n1PB/3R1R1K b - - 0 26';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["e2", "d1"];
+const CORRECT = 'C';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'teg-3';
 

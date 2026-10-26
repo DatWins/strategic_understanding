@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White has a passed pawn on c5 supported by the bishop pair. Black's knight on b6 eyes c4 and challenges the advanced pawn. How does White best exploit the c5 outpost?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Reinforce c5 with b4</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Play b4 to firmly support the c5 pawn and prevent Black's …Nc4, creating a permanent space advantage.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Trade with cxb6</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Capture cxb6 to open the c-file for the rook on b1 and double Black's pawns.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Knight to e4</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Jump the knight to e4 to challenge Black's central control and support the c5 outpost from another angle.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,13 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p>The c5 pawn is a powerful outpost but needs reinforcement. <strong>Plan A (b4)</strong> is the right move:
+ it stops …Nc4 permanently, secures c5, and begins a queenside advance (b4–b5 next) that restricts Black's knight
+ on b6 to a bad square.</p>
+ <p><em>Plan B</em> (cxb6) relieves the tension and gives Black's bishops room to breathe — after …axb6 Black gets
+ open a- and c-files for the rooks with counterplay. <em>Plan C</em> (Ne4) is fine but not as forceful; it does not
+ address the immediate threat to c5 and allows …Nc4.</p>
+ <p>Lesson: A space advantage must be <em>maintained</em>. Reinforce your advanced pawns before expanding further.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +140,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r1bq1rk1/6b1/1npp1np1/2Pp4/3p4/2N2N2/2PPPPBP/1RBQ1RK1 w - - 0 13';
-const HL  = [];
+const HL  = ["c5", "b4"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'tmg-4';

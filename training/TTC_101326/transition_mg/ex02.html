@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">Black has planted the queen on a3 after an aggressive opening, but it is far from the action. White's bishop pair and centralized pieces are ready. How should White handle this position?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Chase the queen with Ra1</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Develop the a-rook to challenge the queen immediately, forcing her to move and regaining the initiative.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Ignore the queen, open center</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Play d4 or f4 to open lines for the bishops and attack the kingside, leaving the queen stranded on a3.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Simplify with Nd4</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Place the knight on d4 to fork the e6 square and bishop, reducing complexity.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p>The queen on a3 looks threatening but is actually <strong>out of play</strong>. <strong>Plan B</strong> — playing
+ f4 to challenge Black's e5 center — is the positional answer. The bishop pair on e3/f3... (e3/b6) comes alive on open
+ diagonals, and f4 undermines the pawn on e5 immediately.</p>
+ <p><em>Plan A</em> (Ra1) wastes time chasing a queen that simply retreats; it accomplishes nothing. <em>Plan C</em>
+ (Nd4) is passive — it doesn't open lines for the bishops and lets Black consolidate with …Be7–f6.</p>
+ <p>Lesson: A stranded queen is only dangerous if you react to it. Open the center and the offside piece becomes
+ irrelevant.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r3k2r/4bppp/1npp1n2/4p3/6P1/q3BB2/2PQNPPP/R4RK1 w kq - 0 13';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["f4", "e5", "e3", "f3"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'tmg-2';
 

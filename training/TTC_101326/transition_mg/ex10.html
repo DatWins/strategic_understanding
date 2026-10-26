@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">Both sides have a solid, symmetrical structure. White's knights on c3 and e3 are well-placed but need targets. Black has the bishop pair pointing at the center. What is White's best plan?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Central pawn advance d4</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Push d4 to stake out the center, limit the bishop on e6, and gain space.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Exploit the c-file with Rc1–c4</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Use the rook on c1 actively with Rc4 to create pressure on the queenside.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Kingside expansion with f4</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Advance f4 to launch a kingside attack, undermining Black's knight on f6.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,11 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (d4)</strong> is the correct strategic approach. It seizes space in the center, limits the bishop
+ on e6 (which becomes blocked by its own d5 pawn), and gives the e3-knight a future outpost on d5 after d4–d5.</p>
+ <p><em>Plan B</em> (Rc4) is overly creative and does not achieve much — Black can simply ignore it. <em>Plan C</em>
+ (f4) is premature: it weakens the e4 square and with Black's bishop pair, an open position would favor Black.</p>
+ <p>Lesson: In symmetrical positions, seize space in the center first. The side with more space has more options.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +138,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r2q1rk1/4ppbp/4bnp1/3p4/8/2N1PN2/2PPPPBP/2RQ1RK1 w - - 0 13';
-const HL  = [];
+const HL  = ["d2", "d4", "e3"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'tmg-10';

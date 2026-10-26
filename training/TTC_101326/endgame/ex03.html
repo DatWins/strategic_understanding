@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">Black to move. What is the best plan here?</p>
+      <p class="question">Black to move. White's queen on e7 is very active and the Black king on c8 is somewhat exposed. Black has a queen on g7 and rooks on c8 and h8. What is the most practical defensive plan?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Trade queens: Qxe7+</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Exchange queens with …Qxe7+ to simplify and reach a rook endgame where Black defends.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — King safety: Kb8</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Move the king to b8 to get out of the danger zone and protect the c8-rook.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Counter: Rxe7</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Capture the queen with the rook — but can we? …Rxe7?? loses to Qxe7 and Black loses.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,13 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (…Qxe7+)</strong> is correct. After …Qxe7+ White must recapture, and Black has traded the
+ dangerous queen. In the resulting rook endgame Black is materially even, and the bishop on c6 and advanced pawns
+ give Black good drawing or winning chances.</p>
+ <p><em>Plan B</em> (Kb8) is too passive — after Qxg7 White has won a piece. The queen on e7 must be dealt with
+ immediately. <em>Plan C</em> is a blunder — Rxe7? leaves the c8-rook hanging and White wins material.</p>
+ <p>Lesson: When the opponent's queen is very active and yours can trade it off, often the simplification is the
+ best practical decision, especially when defending.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +140,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '2kr3r/4Qpqp/p1b4p/3p2p1/8/P5P1/1PP1PPP1/2KR1B1R b - - 0 18';
-const HL  = [];
+const HL  = ["g7", "e7"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'end-3';

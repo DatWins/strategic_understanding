@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">Black to move. What is the best plan here?</p>
+      <p class="question">Black to move. Black's queen on e4 and bishop on d5 are both active and pointed at White's kingside. White's queen is on b5 and the king is on f1. Can Black find the forcing continuation?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Bishop capture: Bxf3</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Capture the knight with …Bxf3 to win material and eliminate a key defender.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Queen check: Qxf3+</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Play …Qxf3+! to force the king to move and follow up with a decisive attack.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Rook activation: Re2+</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Swing the rook to e2 to check the king and gain the initiative.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p><strong>Plan B (…Qxf3+!)</strong> is the killer move. After Qxf3+ Ke1 (or Kg1), White has no way to avoid
+ losing the queen: if Ke1, then …Bxg2 threatening …Bxh1 with material advantage; if Kg1, then …Qxg2#.
+ The queen check forces immediate capitulation.</p>
+ <p><em>Plan A</em> (…Bxf3) also wins material but is slower — after gxf3 Qxf3 White can try Qd7 with
+ counterplay. <em>Plan C</em> (…Re2+) forces Kg1 but then what? The Qxf3+ is more direct.</p>
+ <p>Lesson: A queen sacrifice that is really a queen trade for two major pieces, or a queen check that wins
+ the opponent's queen, is almost always the right choice.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '4r1k1/6bp/6p1/1Qpb4/4q3/4BN2/2PP1PPP/5K1R b - - 0 24';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["e4", "f3"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'teg-8';
 

@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. White has advanced the f-pawn to f4 and has a fianchettoed bishop on g2 aiming at the center. Black's king on g7 is exposed after …f6 and …g6. What is White's most aggressive plan?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Advance: f4–f5</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Push f5 to attack the g6-pawn and open the f-file toward Black's king on g7.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Queen transfer: Qb2–a3</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Reposition the queen to a3 to pressure the d6-bishop and create queenside threats.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Rook activation: Rd3</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Swing the rook to the third rank to prepare doubling or a kingside transfer.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,14 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (f5!)</strong> is the thematic attacking move. It attacks the g6-pawn, and after …gxf5 Bxf5
+ the bishop swoops in. Alternatively if …Ke7, White plays fxg6 hxg6 and the g-file opens. The g2-bishop is a
+ monster once the position opens.</p>
+ <p><em>Plan B</em> (Qa3) is a fine positional idea but too slow — it does not generate immediate threats and Black
+ can calmly improve. <em>Plan C</em> (Rd3) is a regrouping move that delays the attack; Black can fortify with
+ …Ke7 or …Kg8.</p>
+ <p>Lesson: When the f-pawn has advanced and the opponent's king is on a semi-open diagonal, the f5 break is almost
+ always the right attacking decision.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +141,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r2q1r2/5nkp/1p1pbpp1/8/5P2/8/1Q2PPBP/R2R2K1 w - - 0 21';
-const HL  = [];
+const HL  = ["f4", "f5", "g2"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'mid-8';

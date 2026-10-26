@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. White has an advanced pawn on f6 and a rook on f5. Black's knight on g7 is the key blocker preventing the pawn from queening. How does White break through decisively?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Exchange sacrifice: Rxg7+</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Sacrifice the rook on g7 to eliminate the blocking knight and let the f6-pawn queen.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Queen attack: Qg6+</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Check with the queen on g6 to displace the Black king and clear a path.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Support the pawn: Rff1</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Reinforce with Rff1 to protect the rook and prepare a slower advance.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,13 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (Rxg7+!)</strong> is the winning exchange sacrifice. After Rxg7+ Kxg7 (or Rxg7 Qxg7+),
+ the knight on g7 is gone and the f6-pawn is one step from queening. White plays f7 next, and with the remaining
+ rook and queen against Black's two rooks, White wins because the pawn queens.</p>
+ <p><em>Plan B</em> (Qg6+) only checks — after …Kh8 White still needs to deal with the knight on g7 blocking
+ the pawn. <em>Plan C</em> (Rff1) is far too slow — Black defends with …Re6 and the pawn is blockaded forever.</p>
+ <p>Lesson: A pawn on the 6th rank that is one piece away from queening is worth a full rook sacrifice. The queen
+ that results from promotion is worth more than any material investment.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +140,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '4rrk1/5pnp/2p2P1p/3p1R2/3P4/6Q1/2q2PPP/5RK1 w - - 0 26';
-const HL  = [];
+const HL  = ["f5", "g7", "f6"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'end-9';

@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White has not yet castled and Black is already exerting pressure on the e3-bishop and e4-queen. The position is sharp. What is White's most important priority?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Trade on d4</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Exchange Bxd4 to remove the dangerous bishop, simplify, and then castle.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Castle kingside immediately</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Play 0-0 to tuck the king to safety — the most urgent need in a position where Black threatens to win material or attack.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Attack with Qxd5</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Grab the pawn on d5, winning material and opening the d-file for the rook.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,13 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p>Black's bishop on d4 pins/dominates the e3-bishop and the entire White position is shaky. <strong>Plan A</strong>
+ — playing Bxd4 first — is correct because it removes the dominant piece, simplifies, and <em>then</em> White can
+ castle safely.</p>
+ <p><em>Plan B</em> (0-0 first) runs into …Bxe3 fxe3 Nxe4, winning material before the king is even safe.
+ <em>Plan C</em> (Qxd5??) walks into …Qxe3+ with a winning attack — the king is still in the center.</p>
+ <p>Lesson: When your king is in the center and the opponent has a dominant piece attacking your formation, deal with
+ that piece <em>before</em> your other plans.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +140,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r1b1k2r/4pp1p/2n3p1/2qp4/3bQ3/4B3/1PPNPPPP/R3KB1R w KQkq - 0 13';
-const HL  = [];
+const HL  = ["e3", "d4"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'tmg-3';

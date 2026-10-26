@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move, but under serious pressure. Black has a knight on e4 and queen on h3 threatening …Ng3# or …Nxf2+. The White king on h1 is in danger. What is White's best defense?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Counterattack: Qxe4</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Capture the knight with the queen to remove the mating threat at the cost of material balance.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Block with Rf2</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Play Rf2 to block the f-pawn's backward path and defend against Nxf2+.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — King escape: Kg1</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Move the king to g1 to avoid Nxf2+ check and get to safety.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,13 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (Qxe4!)</strong> is the only move. After Qxe4, the immediate threats of …Ng3# and …Nxf2+
+ are both eliminated. White gives up the queen for the knight but the position stabilizes; material imbalance is
+ better than checkmate.</p>
+ <p><em>Plan B</em> (Rf2) is met by …Nxf2+ Rxf2 Qxh2#. <em>Plan C</em> (Kg1) walks into …Ng3! and there is no
+ way to avoid mate (…Qh1+ Kf2 Qh2#).</p>
+ <p>Lesson: When facing a mating threat, identify ALL the threats first. Sometimes you must sacrifice material to
+ survive — but surviving is always better than being mated.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +140,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r5k1/6pp/p2b1r2/1p1p4/3Pn3/4BP1q/2B1QP1P/R4R1K w - - 0 21';
-const HL  = [];
+const HL  = ["e2", "e4"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'mid-9';

@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">Black to move. What is the best plan here?</p>
+      <p class="question">Black to move. Black has a very active rook on e2 behind enemy lines and a rook on a8. White's bishop on e6 and rook on g4 are active. What is Black's clearest winning plan in this endgame?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Rook check: Re1+</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Play …Re1+ to force the king to move and then capture the rook on g4 for free.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Pawn win: Rxb2</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Capture the b-pawn with …Rxb2 to win a pawn and simplify into a winning endgame.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Rook to a3: Ra3</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Transfer the a-rook to the 3rd rank to create a battery with Re2.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,14 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (…Re1+!)</strong> is the forcing move. After Re1+ Kf2 (the king is forced away from g1),
+ Black plays …Rxg4 to win the rook on g4, gaining a full rook for nothing. Suddenly Black is up a full exchange
+ and the endgame is winning.</p>
+ <p><em>Plan B</em> (…Rxb2) wins a pawn but allows White to counterplay with the bishop and rook; after Rxb5
+ the position is much less clear. <em>Plan C</em> (…Ra3) is far too slow — White plays d6 advancing the
+ dangerous passed pawn before the rook can contribute.</p>
+ <p>Lesson: A check that forces the king to move, allowing you to win material on the next move, is almost always
+ the best move. Find the forcing line, not the quiet improvement.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +141,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r6k/7p/4B3/1p1Pp3/6R1/4P3/1P2r2P/5K2 b - - 0 32';
-const HL  = [];
+const HL  = ["e2", "e1"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'end-10';

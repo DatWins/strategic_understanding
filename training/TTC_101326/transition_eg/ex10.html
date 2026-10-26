@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. White has two powerful rooks on the 7th rank — c7 and f7 — and a queen on e3. Black's king is on d8 and Black's pieces are tangled. What is the winning plan?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Rook capture: Rxb7</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Capture the bishop on b7 with the rook to win material and expose the Black king further.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Mating net: Qe7+</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Play Qe7+ to force the king to c8 or e8, then use the rooks to deliver checkmate.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Simplify: Rxg7</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Capture the pawn on g7 with the rook to create a passed pawn and simplify.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p><strong>Plan B (Qe7+!)</strong> is the mating attack. After Qe7+ Kc8 (forced), White delivers Rxg7 or Rc7–d7
+ depending on Black's setup, and with two rooks on the 7th rank, the mating net is airtight. Black cannot defend
+ against Rd7# or the queen invading.</p>
+ <p><em>Plan A</em> (Rxb7) wins material but gives Black a tempo to try …Qa1+ and muddy the waters.
+ <em>Plan C</em> (Rxg7) wins a pawn but isn't as forcing — Black can try …Qxa2 with counterplay.</p>
+ <p>Lesson: Two rooks on the 7th rank plus a queen = mating attack. Force the king to its worst square and close
+ the net methodically.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r2k3r/1bR2Rpp/p1n1p2p/q7/8/2P1Q1B1/4B1PP/6K1 w - - 0 26';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["e3", "e7", "c7", "f7"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'teg-10';
 

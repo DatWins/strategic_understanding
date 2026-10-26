@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">Black has an impressive array of active pieces — queen on b6, two bishops, two knights. White's pieces are less coordinated. What is White's most important strategic task?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Challenge with Nc4</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Jump the knight to c4 to challenge the queen on b6 and gain space on the queenside.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Central anchor with d4</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Play d4 to establish a strong pawn center and limit Black's knights from c4 and e4.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Trade bishops with Bxf5</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Exchange Bxf5... wait, bishop is on d3. Exchange on a6 to weaken Black's queenside.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p>Black's knights need the squares c4 and e4 — those are their ideal posts. <strong>Plan B (d4)</strong> denies
+ both squares at once: after d4, …Nc4 loses to b3, and …Ne4 is met by Nxe4. White establishes a broad pawn center
+ that restricts Black's most active pieces.</p>
+ <p><em>Plan A</em> (Nc4) chases the queen but after …Qc7 it retreats safely and the knight on c4 has no real
+ follow-up. <em>Plan C</em> makes no sense structurally — the bishop on d3 is well-placed and there is no bishop
+ on a6 to target.</p>
+ <p>Lesson: When the opponent's pieces are heading for ideal squares, build a pawn wall that closes those doors.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '2r1k2r/3bb1pp/1qn1p3/p2p1n2/8/P2B1N2/1PNP1PPP/R1BQ1RK1 w k - 0 13';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["d2", "d4"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'tmg-8';
 

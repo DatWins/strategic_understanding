@@ -87,40 +87,45 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. The knight on d5 and bishop on b5 form a powerful pair dominating the center. Black's king is still on e8, and multiple pawns are advanced on the queenside. What is White's best continuation?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Rook activation: Rd3</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Swing the rook to d3 to potentially double on the d-file or transfer to the kingside.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Knight maintained: Nxc7+</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Capture Nxc7+ to fork the king and rook on h8, winning material.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Push the f-pawn: f4</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Advance f4 to open the position and create a kingside attack against the exposed king.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p><strong>Plan B (Nxc7+)</strong> wins material by force. After Nxc7+ Kd7 (or Ke7), the knight forks king and
+ rook — White captures the rook on h8 or the queen on d8 depending on what's attacked. The knight on d5 was always
+ threatening this, and now is the moment to cash in.</p>
+ <p><em>Plan A</em> (Rd3) is a long-term regrouping plan that ignores a concrete, immediate win.
+ <em>Plan C</em> (f4) opens the position unnecessarily when a simple knight fork ends the game.</p>
+ <p>Lesson: When you have a knight fork available that wins material, take it. Don't look for "something better."</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +139,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '3qkr1r/8/2b5/pBpNp3/pp6/5P2/2P1PPPP/1K1R3R w k - 0 21';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["d5", "c7"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'mid-7';
 

@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move in a chaotic position. Black's queen on h4 is dangerously close to the White king on e2 and the bishop on h2 skewers the king. White has the knight on e4 and queen on c4. What is White's only way to survive and fight back?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Counterattack with Nd6+</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Play Nd6+ forcing the king to d8 or f8, disrupting Black's coordination.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — King runs to d3</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">The king steps to d3 to escape the h2-bishop's diagonal and get to safety.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Queen to f4 to block</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Play Qf4 to trade queens and simplify away from the attack.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,13 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p>In a wild position, <strong>Plan A (Nd6+)</strong> is the only way to seize the initiative. After Nd6+ Ke7
+ (or Kf8), White can play Qf4! threatening mate on f7, and the attack materializes before Black's queen can deliver
+ her own blow. The knight fork on d6 disrupts Black's coordination at the critical moment.</p>
+ <p><em>Plan B</em> (Kd3) walks into …Qf4#! after …Bxf1. <em>Plan C</em> (Qf4) loses to …Qxf4+ Bxf4 Bxf1 and
+ Black is up material.</p>
+ <p>Lesson: When both sides are attacking, the one who acts first wins. Look for checks and forcing moves above
+ all else.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +140,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r3k2r/5pp1/2p1p1p1/3p1p2/2Q1N2q/4B3/2PPK1Pb/R4R2 w kq f6 0 19';
-const HL  = [];
+const HL  = ["e4", "d6"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'mid-3';

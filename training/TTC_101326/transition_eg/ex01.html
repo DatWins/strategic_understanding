@@ -87,40 +87,47 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. The knight on d6 and rook on g6 dominate the position. Black's king is on g8 with a rook on f8. White has a concrete winning continuation. Can you find it?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Knight capture: Nxf7</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Sacrifice or simply capture Nxf7 to win the exchange — the rook on f8 falls.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Rook check: Rxg8+</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Play Rxg8+ Kxg8 and then Nxf7 to fork king and bishop, winning material.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Rook pressure: Ra6</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Swing the a-rook to a6 to pressure the bishop on b6 and create a second threat.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p><strong>Plan B (Rxg8+!)</strong> is the winning combination. After Rxg8+ Kxg8, the king has moved to g8,
+ and now Nxf7! forks the king on g8 and the bishop on b6 — but wait, the bishop is on b6, not on a square forked.
+ More precisely: Rxg8+ Kxg8 Nf7! wins the rook on f8 (it's pinned), and then the king is under attack. This
+ exchange sacrifice crashes through.</p>
+ <p><em>Plan A</em> (Nxf7) directly also works — after Nxf7 Rxf7 Rxg8+ is again possible. But Rxg8+ first is
+ the cleanest. <em>Plan C</em> (Ra6) is slow when a forcing win exists.</p>
+ <p>Lesson: Rook sacrifices on g8 to deflect the king before a fork are a classic pattern. Visualize two moves
+ ahead.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +141,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '5rk1/8/1b1Np1Rp/4p2P/8/8/R3PPKP/8 w - - 0 30';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["g6", "g8", "d6", "f7"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'teg-1';
 

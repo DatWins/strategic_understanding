@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White has queen on e5 and two active bishops. Black's king is still on e8 and the f7 pawn is weakly defended. Is there a forcing continuation?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Pressure with Qd6</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Play Qd6 to dominate the key square, threaten Ne5, and slowly tighten the grip.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Bishop sacrifice Bxf7+</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Sacrifice Bxf7+ to force the king out of its fortress, following up with Bg5+ to maintain the attack.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Reinforce with Nd2–f3</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Develop the knight to f3 to add more pressure on e5 and prepare Ng5.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p>The position screams for <strong>Plan B (Bxf7+!)</strong>. After Bxf7+ Kxf7, the king is exposed and
+ White continues with Bg5+ (the other bishop joins) forcing Ke8/Ke6 — the king is in a mating net. The material
+ is regained or the attack proves decisive.</p>
+ <p><em>Plan A</em> (Qd6) is strong but far less forcing — Black can try to wriggle out. <em>Plan C</em> (Nd2–f3)
+ is simply too slow; it wastes the moment when Black's king is maximally vulnerable.</p>
+ <p>Lesson: When the opponent's king is stuck in the center and you have a bishop aimed at f7, look for the
+ sacrifice first — it's often forcing enough to win on the spot.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '2bqk1rr/3nb1pp/2p3p1/4Q1B1/2B1P3/8/1PP1PPPP/RN3RK1 w k - 0 12';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["c4", "f7", "g5"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'tmg-9';
 

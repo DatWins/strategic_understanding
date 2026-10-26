@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">Black to move. What is the best plan here?</p>
+      <p class="question">Black to move. Black has a strong pawn on e4 cramping White's knight and queen on e5 centralized. White's king is on h2, slightly exposed. How does Black best press the advantage?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Activate bishop: Bg4</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Bring the bishop out to g4 to pin the knight on f3 and double the pressure on White's cramped position.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Push the pawn: e3</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Advance e4–e3 to undermine White's pawn structure, forcing the queen off e2 or winning material.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Castle queenside: 0-0-0</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Castle queenside to connect the rooks and prepare a rook lift to the e or d file.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p><strong>Plan B (…e3!)</strong> is the killer move. The pawn storms to e3, attacking the f2-pawn and the queen
+ on e2 simultaneously. After fxe3 dxe3, the queen is forced to move while Black's pawn on e3 is a monster.
+ Alternatively Qxe2 Rxe2 e3 and the pawn queens.</p>
+ <p><em>Plan A</em> (…Bg4) is fine but much slower — White can unpin with h3. <em>Plan C</em> (…0-0-0) puts the king
+ on a dangerous file and is too slow when Black has a winning tactical shot available.</p>
+ <p>Lesson: When you have a pawn that can charge forward to attack two pieces at once, play it — don't waste time
+ on slow improvements.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r1b1k2r/6pp/2p5/3pq3/2B1p3/5NP1/1PPPQPPK/7R b kq - 0 20';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["e4", "e3"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'mid-1';
 

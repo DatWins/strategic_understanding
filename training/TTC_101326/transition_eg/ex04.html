@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. The bishop on d6 is a monster dominating the entire board, and White has a passed pawn on g6 deep in Black territory. How does White convert this advantage?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Bishop trade: Bxc8</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Exchange bishop for rook to win material, simplifying to a winning endgame.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Pawn push: g7</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Advance the g-pawn to g7 to create a passed pawn one step from queening.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Knight jump: Ne6</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Centralize the knight to e6, forking the rooks on c8 and g8 (if any), and coordinating with the bishop.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan B.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan B?</h3>
+        <p><strong>Plan B (g7!)</strong> is the decisive move. The pawn on g7 is unstoppable — Black's rooks cannot both
+ defend f8 and stop the pawn. After g7, White threatens g8=Q. The bishop on d6 controls the key defensive squares,
+ and Black is in zugzwang-like paralysis.</p>
+ <p><em>Plan A</em> (Bxc8) is fine but slower — after Rxc8 Rxc8 Black still has some resistance. <em>Plan C</em>
+ (Ne6) is creative but the simple g7 wins immediately without complications.</p>
+ <p>Lesson: A passed pawn one step from queening, backed by a dominant bishop, is usually the most direct winning
+ plan. Push it!</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = 'r1r3k1/n7/b2Bp1Pp/p2p4/3N4/3P4/4PPPP/1K1R2R1 w - - 0 30';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["g6", "g7"];
+const CORRECT = 'B';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'teg-4';
 

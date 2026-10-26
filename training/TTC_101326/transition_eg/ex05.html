@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. The rook on a7 is powerfully placed controlling the 7th rank. Black has two bishops and a knight but the king is exposed on g8. What is White's best plan to convert the advantage?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Rook activity: Ra8+</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Play Ra8+ to force Rxb8... wait, the rook trades. Instead play Rxb7 to win a pawn.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Trade pieces: Nxb1</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">No, activate with Nf3 to pressure the d4-bishop.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Exchange: Nf3</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Jump the knight to f3 to attack the bishop on d4 and coordinate with the bishop on h2.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan C.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan C?</h3>
+        <p><strong>Plan C (Nf3)</strong> is the right plan. The knight jumps to f3, attacking the bishop on d4. If
+ Black defends with …Bc3, White plays Bxc3 Nxc3 and the knight defends a7 while White has won a pawn. The rook on
+ a7 prevents Black's rook from activating, and the piece coordination is excellent.</p>
+ <p><em>Plan A</em> (Ra8+) forces a rook trade on b8 which helps Black simplify. <em>Plan B</em> as stated is
+ nonsensical — the best idea really is Nf3 to coordinate and win material.</p>
+ <p>Lesson: When you have a dominant rook on the 7th rank, coordinate your other pieces to increase the pressure
+ rather than trading the rook away.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '1r4k1/R7/5b1p/2nb4/8/8/3N1PPB/6K1 w - - 0 30';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["d2", "f3", "d4"];
+const CORRECT = 'C';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'teg-5';
 

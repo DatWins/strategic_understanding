@@ -87,30 +87,30 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. White has a powerful bishop on e4 aimed at the center and queenside, and a knight on f3 ready to jump to d4. Black's queen is far on a5. What is White's best strategic plan?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Knight centralization: Nd4</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Jump the knight to d4 to dominate the center, threaten c6, and cut off Black's queen.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Bishop trade: Bxb7</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Exchange the bishop for Black's bishop on b7 to double Black's b-pawns.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Pawn center: d4</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Push d4 to gain space in the center and activate the rooks on the d-file.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
@@ -120,7 +120,13 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
       <div class="explanation" id="explanation">
         <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <p><strong>Plan A (Nd4)</strong> is a textbook piece centralization. The knight on d4 hits c6 (weakening Black's
+ structure), attacks e6, and the bishop on e4 and knight form a powerful duo. Black's queen on a5 is now cut off from
+ the kingside where the action will be.</p>
+ <p><em>Plan B</em> (Bxb7) is fine but relieves Black's queenside tension by trading the active bishop; Black gets
+ the open a-file and …Rxb7. <em>Plan C</em> (d4) is playable but slower than Nd4 which works right away.</p>
+ <p>Lesson: A knight on d4 in the center of the board is often worth more than any pawn advance — place your pieces
+ on dominant squares first.</p>
       </div>
 
       <div class="nav-row">
@@ -134,7 +140,7 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '1r3r1k/1b6/1pp1pb1p/q7/4B1P1/4PNP1/2QPPPP1/2RR2K1 w - - 0 21';
-const HL  = [];
+const HL  = ["f3", "d4", "e4"];
 const CORRECT = 'A';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'mid-6';

@@ -87,40 +87,46 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
     </div>
 
     <div class="text-col">
-      <p class="question">White to move. What is the best plan here?</p>
+      <p class="question">White to move. Black has a very active knight on g3 threatening the bishop on f1 and potentially Nxh1. White's queen is on c2. What is White's best defensive move?</p>
 
       <div class="choice" id="cA" onclick="pick('A')">
         <div class="choice-head">
           <span class="choice-letter">A</span>
-          <span class="choice-plan">Plan A — [to be filled]</span>
+          <span class="choice-plan">Plan A — Queen to g2</span>
         </div>
-        <div class="choice-body">Describe plan A.</div>
+        <div class="choice-body">Defend f1 with Qg2 to protect the bishop and stabilize the position.</div>
       </div>
 
       <div class="choice" id="cB" onclick="pick('B')">
         <div class="choice-head">
           <span class="choice-letter">B</span>
-          <span class="choice-plan">Plan B — [to be filled]</span>
+          <span class="choice-plan">Plan B — Rook to d3</span>
         </div>
-        <div class="choice-body">Describe plan B.</div>
+        <div class="choice-body">Play Rd3 to threaten Rg3 and challenge the knight actively.</div>
       </div>
 
       <div class="choice" id="cC" onclick="pick('C')">
         <div class="choice-head">
           <span class="choice-letter">C</span>
-          <span class="choice-plan">Plan C — [to be filled]</span>
+          <span class="choice-plan">Plan C — Pawn capture: fxg3</span>
         </div>
-        <div class="choice-body">Describe plan C.</div>
+        <div class="choice-body">Capture the knight with fxg3 to win the piece and open the f-file.</div>
       </div>
 
       <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
-      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan C.</div>
 
       <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
 
       <div class="explanation" id="explanation">
-        <h3>Why Plan A?</h3>
-        <p>Explanation to be filled in.</p>
+        <h3>Why Plan C?</h3>
+        <p>The knight on g3 is a monster — it threatens Nxf1 winning the bishop and Nxh1 winning the rook.
+ <strong>Plan C (fxg3!)</strong> is the only move that eliminates the threat. After fxg3 …Qxg3+ Kh1
+ (or Bg2), White defends with Rg1 and trades queens, ending the attack.</p>
+ <p><em>Plan A</em> (Qg2) loses immediately to …Nxh1! Qxh1 Nxf1 and Black wins two pieces.
+ <em>Plan B</em> (Rd3) is too slow — after …Nxf1 Black has won the bishop and the position.</p>
+ <p>Lesson: Remove the opponent's most dangerous active piece immediately. A knight on g3 (or g6 for White) is
+ almost always a problem that cannot be ignored.</p>
       </div>
 
       <div class="nav-row">
@@ -134,8 +140,8 @@ canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
 <script>
 const FEN = '7k/3b2q1/2n5/3p1p1p/2P5/5Pn1/2Q2P1P/3R1BK1 w - - 0 26';
-const HL  = [];
-const CORRECT = 'A';
+const HL  = ["f3", "g3"];
+const CORRECT = 'C';
 const DONE_KEY = 'su-ttc101326';
 const EX_KEY   = 'end-7';
 
