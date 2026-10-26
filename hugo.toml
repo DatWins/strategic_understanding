@@ -1,0 +1,27 @@
+baseURL = "/"
+
+disableKinds = ["section", "taxonomy", "term", "RSS", "robotsTXT", "sitemap"]
+
+defaultContentLanguage = "en"
+
+theme = "hugo-scroll"
+
+title = "Strategic Understanding"
+
+enableGitInfo = true
+enableEmoji = true
+
+[params]
+    favicon = "images/favicon.png"
+    title = "Strategic Understanding"
+    description = "Chess middlegame planning training from Titled Tuesday games"
+    hidedesignbyline = true
+
+[languages]
+  [languages.en]
+    weight = 10
+    languageName = "English"
+    contentDir = "content/en"
+
+[markup.goldmark.renderer]
+  unsafe = true
