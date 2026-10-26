@@ -11,11 +11,13 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--paper);color:var(--ink)}
 body{font-family:system-ui,'Segoe UI',sans-serif;font-size:var(--fs);line-height:1.6}
-.topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:10px;padding:8px 20px;background:var(--paper);border-bottom:1px solid var(--line);font-size:14px;flex-wrap:wrap}
-.back{color:var(--main);text-decoration:none;font-weight:600;font-size:13px}
-.back:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:0;padding:0 20px;background:#1a2a50;font-size:14px;height:48px}
+.nav-brand{color:#fbfaf7;font-family:Georgia,serif;font-size:.95rem;font-weight:normal;text-decoration:none;margin-right:auto}
+.nav-links{display:flex;align-items:stretch;gap:0}
+.nav-links a{color:rgba(251,250,247,.75);text-decoration:none;font-family:system-ui,sans-serif;font-size:.82rem;font-weight:500;padding:0 14px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.nav-links a:hover,.nav-links a.active{color:#fbfaf7;border-bottom-color:#c8ab5a}
 .sp{flex:1}
-.dk-btn{font:inherit;font-size:13px;background:var(--btn);color:var(--ink);border:1px solid var(--btnb);border-radius:6px;padding:4px 10px;cursor:pointer}
+.dk-btn{font:inherit;font-size:13px;background:rgba(255,255,255,.1);color:#fbfaf7;border:1px solid rgba(255,255,255,.25);border-radius:4px;padding:4px 10px;cursor:pointer;margin-left:16px}
 .page{max-width:980px;margin:0 auto;padding:28px 16px 80px}
 .kicker{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
 h1{font-size:1.15rem;font-weight:700;margin-bottom:18px;line-height:1.3}
@@ -81,14 +83,12 @@ h1{font-size:1.15rem;font-weight:700;margin-bottom:18px;line-height:1.3}
 <body>
 
 <div class="topbar">
-  <a class="back" href="../../../index.html">&#127968; Home</a>
-  <span style="color:var(--muted);font-size:12px">&#8250;</span>
-  <a class="back" href="../../../training.html">Training</a>
-  <span style="color:var(--muted);font-size:12px">&#8250;</span>
-  <a class="back" href="../index.html">TTC_101326</a>
-  <span style="color:var(--muted);font-size:12px">&#8250;</span>
-  <span style="color:var(--muted);font-size:13px">Transition to Middlegame 03</span>
-  <span class="sp"></span>
+  <a class="nav-brand" href="../../../index.html">Strategic Understanding</a>
+  <nav class="nav-links">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../index.html#how-to-play">How to play</a>
+    <a href="../index.html" class="active">Training</a>
+  </nav>
   <button class="dk-btn" id="dk">Dark</button>
 </div>
 
