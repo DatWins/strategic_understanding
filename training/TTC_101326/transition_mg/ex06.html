@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wunderkind2011 vs fryebc — Transition to Middlegame · Strategic Understanding</title>
+<style>
+:root{--fs:17px;--paper:#fbfaf7;--ink:#1d1f22;--muted:#5d6670;--line:#e2e0da;--card:#fff;--main:#1f4fa3;--mainbg:#1f4fa3;--mainfg:#fff;--btn:#fff;--btnb:#cfd5db;--gold:#b07d10;--correct:#166534;--correct-bg:#f0fdf4;--wrong:#9b1c1c;--wrong-bg:#fef2f2}
+:root[data-theme="dark"]{--paper:#16191d;--ink:#e4e6e9;--muted:#9aa3ad;--line:#2c3238;--card:#1d2126;--main:#86b4ff;--mainbg:#2f5ea8;--mainfg:#fff;--btn:#232930;--btnb:#3a434c;--gold:#c9a030;--correct:#4ade80;--correct-bg:#0f2a1a;--wrong:#fca5a5;--wrong-bg:#3a0000;color-scheme:dark}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#16191d;--ink:#e4e6e9;--muted:#9aa3ad;--line:#2c3238;--card:#1d2126;--main:#86b4ff;--mainbg:#2f5ea8;--mainfg:#fff;--btn:#232930;--btnb:#3a434c;--gold:#c9a030;--correct:#4ade80;--correct-bg:#0f2a1a;--wrong:#fca5a5;--wrong-bg:#3a0000;color-scheme:dark}}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink)}
+body{font-family:system-ui,'Segoe UI',sans-serif;font-size:var(--fs);line-height:1.6}
+.topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:10px;padding:8px 20px;background:var(--paper);border-bottom:1px solid var(--line);font-size:14px;flex-wrap:wrap}
+.back{color:var(--main);text-decoration:none;font-weight:600;font-size:13px}
+.back:hover{text-decoration:underline}
+.sp{flex:1}
+.dk-btn{font:inherit;font-size:13px;background:var(--btn);color:var(--ink);border:1px solid var(--btnb);border-radius:6px;padding:4px 10px;cursor:pointer}
+.page{max-width:980px;margin:0 auto;padding:28px 16px 80px}
+.kicker{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+h1{font-size:1.15rem;font-weight:700;margin-bottom:18px;line-height:1.3}
+.layout{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:start}
+@media(max-width:720px){.layout{grid-template-columns:1fr}}
+.board-col{}
+.board-wrap{position:relative;display:inline-block}
+canvas{display:block;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.coord-files{display:flex;justify-content:space-around;padding:2px 0 0;font-size:.65rem;color:var(--muted);font-weight:600;letter-spacing:.04em;font-family:system-ui}
+.coord-ranks{position:absolute;left:-18px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-around;font-size:.65rem;color:var(--muted);font-weight:600;font-family:system-ui}
+.game-link{margin-top:10px;font-size:.8rem;text-align:center}
+.game-link a{color:var(--main);text-decoration:none;font-weight:600}
+.game-link a:hover{text-decoration:underline}
+.to-move{margin-top:6px;font-size:.8rem;color:var(--muted);text-align:center;font-family:system-ui}
+.text-col{}
+.question{font-size:1rem;font-weight:600;margin-bottom:16px;line-height:1.45}
+.choice{border:2px solid var(--line);border-radius:10px;padding:12px 16px;margin-bottom:10px;cursor:pointer;transition:border-color .15s,background .15s}
+.choice:hover{border-color:var(--main);background:color-mix(in srgb,var(--main) 4%,var(--card))}
+.choice.correct{border-color:var(--correct);background:var(--correct-bg)}
+.choice.wrong{border-color:var(--wrong);background:var(--wrong-bg)}
+.choice-head{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.choice-letter{font-weight:800;font-size:1rem;color:var(--main);min-width:18px}
+.choice-plan{font-weight:700;font-size:.92rem}
+.choice-body{font-size:.85rem;color:var(--muted);line-height:1.4;padding-left:28px}
+.verdict{display:none;margin:12px 0;padding:10px 14px;border-radius:8px;font-size:.9rem;font-weight:600}
+.verdict.ok{background:var(--correct-bg);color:var(--correct);border:1px solid var(--correct)}
+.verdict.no{background:var(--wrong-bg);color:var(--wrong);border:1px solid var(--wrong)}
+.more-btn{display:none;margin-top:8px;font:inherit;font-size:.85rem;background:none;border:none;color:var(--main);cursor:pointer;padding:4px 0;font-weight:600}
+.explanation{display:none;margin-top:16px;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:8px;font-size:.88rem;line-height:1.6}
+.explanation h3{font-size:.95rem;font-weight:700;margin-bottom:8px}
+.explanation p{margin-bottom:8px;color:var(--muted)}
+.explanation p:last-child{margin-bottom:0}
+.nav-row{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap}
+.nav-btn{padding:8px 18px;border-radius:8px;border:1px solid var(--btnb);color:var(--ink);text-decoration:none;background:var(--btn);font-size:.88rem;font-family:system-ui}
+.nav-btn.main{background:var(--mainbg);color:var(--mainfg);border-color:var(--mainbg);font-weight:600}
+.players{font-size:.8rem;color:var(--muted);margin-bottom:14px;font-family:system-ui}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back" href="../../../index.html">&#127968; Home</a>
+  <span style="color:var(--muted);font-size:12px">&#8250;</span>
+  <a class="back" href="../../../training.html">Training</a>
+  <span style="color:var(--muted);font-size:12px">&#8250;</span>
+  <a class="back" href="../index.html">TTC_101326</a>
+  <span style="color:var(--muted);font-size:12px">&#8250;</span>
+  <span style="color:var(--muted);font-size:13px">Transition to Middlegame 06</span>
+  <span class="sp"></span>
+  <button class="dk-btn" id="dk">Dark</button>
+</div>
+
+<div class="page">
+  <div class="kicker">Transition to Middlegame &middot; Exercise 06</div>
+  <h1>wunderkind2011 vs fryebc — Transition to Middlegame</h1>
+  <div class="players">wunderkind2011 (2756) vs fryebc (2261)</div>
+
+  <div class="layout">
+    <div class="board-col">
+      <div class="board-wrap">
+        <div class="coord-ranks" id="coord-ranks"></div>
+        <canvas id="board" width="400" height="400"></canvas>
+        <div class="coord-files" id="coord-files"></div>
+      </div>
+      <div class="game-link">
+        <a href="https://www.chess.com/games/search?username=wunderkind2011&opponent=fryebc&gameType=blitz" target="_blank" rel="noopener">View full game on Chess.com &#8599;</a>
+      </div>
+      <div class="to-move" id="to-move"></div>
+    </div>
+
+    <div class="text-col">
+      <p class="question">White to move. What is the best plan here?</p>
+
+      <div class="choice" id="cA" onclick="pick('A')">
+        <div class="choice-head">
+          <span class="choice-letter">A</span>
+          <span class="choice-plan">Plan A — [to be filled]</span>
+        </div>
+        <div class="choice-body">Describe plan A.</div>
+      </div>
+
+      <div class="choice" id="cB" onclick="pick('B')">
+        <div class="choice-head">
+          <span class="choice-letter">B</span>
+          <span class="choice-plan">Plan B — [to be filled]</span>
+        </div>
+        <div class="choice-body">Describe plan B.</div>
+      </div>
+
+      <div class="choice" id="cC" onclick="pick('C')">
+        <div class="choice-head">
+          <span class="choice-letter">C</span>
+          <span class="choice-plan">Plan C — [to be filled]</span>
+        </div>
+        <div class="choice-body">Describe plan C.</div>
+      </div>
+
+      <div class="verdict ok" id="v-ok">&#10003; Correct &mdash; A is the best plan.</div>
+      <div class="verdict no" id="v-no">&#10007; Not quite. The answer is Plan A.</div>
+
+      <button class="more-btn" id="more-btn" onclick="showExplanation()">Full explanation &#8595;</button>
+
+      <div class="explanation" id="explanation">
+        <h3>Why Plan A?</h3>
+        <p>Explanation to be filled in.</p>
+      </div>
+
+      <div class="nav-row">
+        <a class="nav-btn" href="ex05.html">&larr; Prev</a>
+        <a class="nav-btn" href="../index.html">&#8593; Session</a>
+        <a class="nav-btn main" href="ex07.html">Next &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const FEN = 'r1b1k2r/3nb1pp/p3pn2/1p6/2BN1B2/2N5/2PP1PPP/2KRR3 w kq b6 0 13';
+const HL  = [];
+const CORRECT = 'A';
+const DONE_KEY = 'su-ttc101326';
+const EX_KEY   = 'tmg-6';
+
+function parseFen(fen) {
+  const ranks = fen.split(' ')[0].split('/');
+  const board = [];
+  for (const rank of ranks) {
+    const row = [];
+    for (const ch of rank) {
+      if (/\d/.test(ch)) row.push(...Array(+ch).fill(null));
+      else {
+        const color = ch === ch.toUpperCase() ? 'w' : 'b';
+        const piece = ch.toUpperCase();
+        row.push(color + piece);
+      }
+    }
+    board.push(row);
+  }
+  return board;
+}
+
+const PIECES = {
+  wK:'\u2654',wQ:'\u2655',wR:'\u2656',wB:'\u2657',wN:'\u2658',wP:'\u2659',
+  bK:'\u265A',bQ:'\u265B',bR:'\u265C',bB:'\u265D',bN:'\u265E',bP:'\u265F',
+};
+
+const SQ_SIZE = 50;
+const FILES = 'abcdefgh';
+
+function drawBoard() {
+  const canvas = document.getElementById('board');
+  const ctx = canvas.getContext('2d');
+  const board = parseFen(FEN);
+  const sz = SQ_SIZE;
+  canvas.width  = sz * 8;
+  canvas.height = sz * 8;
+  const hlCol = 'rgba(255,235,0,0.52)';
+
+  for (let r = 0; r < 8; r++) {
+    for (let f = 0; f < 8; f++) {
+      const sqName = FILES[f] + (8 - r);
+      ctx.fillStyle = (r + f) % 2 === 0 ? '#f0d9b5' : '#b58863';
+      ctx.fillRect(f * sz, r * sz, sz, sz);
+      if (HL.includes(sqName)) {
+        ctx.fillStyle = hlCol;
+        ctx.fillRect(f * sz, r * sz, sz, sz);
+      }
+      const piece = board[r][f];
+      if (piece) {
+        const glyph = PIECES[piece];
+        if (!glyph) continue;
+        ctx.font = Math.floor(sz * 0.7) + 'px serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        if (piece[0] === 'w') {
+          ctx.strokeStyle = '#555';
+          ctx.lineWidth = 3;
+          ctx.strokeText(glyph, f * sz + sz/2, r * sz + sz/2);
+        }
+        ctx.fillStyle = piece[0] === 'w' ? '#fff' : '#1a1a1a';
+        ctx.fillText(glyph, f * sz + sz/2, r * sz + sz/2);
+      }
+    }
+  }
+
+  const ranks = document.getElementById('coord-ranks');
+  const files = document.getElementById('coord-files');
+  ranks.innerHTML = [8,7,6,5,4,3,2,1].map(n=>`<span style="height:${sz}px;display:flex;align-items:center">${n}</span>`).join('');
+  files.innerHTML = [...'abcdefgh'].map(c=>`<span style="width:${sz}px;display:inline-flex;justify-content:center">${c}</span>`).join('');
+
+  document.getElementById('to-move').textContent = FEN.split(' ')[1] === 'w' ? 'White to move' : 'Black to move';
+}
+
+drawBoard();
+
+document.getElementById('dk').onclick = function() {
+  const cur = document.documentElement.getAttribute('data-theme');
+  document.documentElement.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+  this.textContent = cur === 'dark' ? 'Dark' : 'Light';
+  drawBoard();
+};
+
+let answered = false;
+function pick(letter) {
+  if (answered) return;
+  answered = true;
+  ['A','B','C'].forEach(l => {
+    const el = document.getElementById('c' + l);
+    if (l === letter) el.classList.add(l === CORRECT ? 'correct' : 'wrong');
+    if (l === CORRECT && l !== letter) el.classList.add('correct');
+  });
+  document.getElementById(letter === CORRECT ? 'v-ok' : 'v-no').style.display = 'block';
+  document.getElementById('more-btn').style.display = 'inline-block';
+  try {
+    const data = JSON.parse(localStorage.getItem(DONE_KEY) || '{}');
+    data[EX_KEY] = true;
+    localStorage.setItem(DONE_KEY, JSON.stringify(data));
+  } catch(e) {}
+}
+
+function showExplanation() {
+  document.getElementById('explanation').style.display = 'block';
+  document.getElementById('more-btn').style.display = 'none';
+}
+</script>
+</body>
+</html>
