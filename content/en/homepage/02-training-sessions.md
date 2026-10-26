@@ -15,4 +15,4 @@ Each session pulls 40 positions from one Titled Tuesday tournament, grouped into
 
 Work through all four phases to complete a session. Progress is saved automatically.
 
-**[Start Training →](/training.html)**
+**[Start Training →](training.html)**
