@@ -37,7 +37,7 @@ hr{border:none;height:2px;background:linear-gradient(to right,var(--main) 48px,v
 .progress-pct{font-size:.8rem;font-weight:700;color:var(--main)}
 
 .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:40px}
-@media(max-width:800px){.phases{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.phases{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.phases{grid-template-columns:1fr}}
 
 .phase-card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
@@ -55,6 +55,10 @@ hr{border:none;height:2px;background:linear-gradient(to right,var(--main) 48px,v
 .ex-list a{display:flex;align-items:center;gap:8px;padding:8px 14px;text-decoration:none;color:var(--ink);font-size:.82rem;transition:background .1s;line-height:1.3}
 .ex-list a:hover{background:color-mix(in srgb,var(--main) 6%,var(--card))}
 .ex-num{font-size:.7rem;font-weight:700;color:var(--muted);min-width:20px;flex-shrink:0}
+.ex-players{flex:1;min-width:0}
+.ex-white{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ex-vs{font-size:.7rem;color:var(--muted);line-height:1}
+.ex-black{font-size:.75rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ex-done{color:#1a6e30;font-size:.78rem;margin-left:auto;flex-shrink:0}
 [data-theme="dark"] .ex-done{color:#4ade80}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .ex-done{color:#4ade80}}
@@ -134,17 +138,62 @@ hr{border:none;height:2px;background:linear-gradient(to right,var(--main) 48px,v
 
 <script>
 const PHASES = [
-  {id:'tmg', dir:'transition_mg', label:'TMG', n:10},
-  {id:'mid', dir:'middlegame',    label:'MID', n:10},
-  {id:'teg', dir:'transition_eg', label:'TEG', n:10},
-  {id:'end', dir:'endgame',       label:'END', n:10},
+  {id:'tmg', dir:'transition_mg', n:10},
+  {id:'mid', dir:'middlegame',    n:10},
+  {id:'teg', dir:'transition_eg', n:10},
+  {id:'end', dir:'endgame',       n:10},
 ];
 
-const LABELS = {
-  tmg:['Transition to Middlegame','…','…','…','…','…','…','…','…','…'],
-  mid:['Middlegame','…','…','…','…','…','…','…','…','…'],
-  teg:['Transition to Endgame','…','…','…','…','…','…','…','…','…'],
-  end:['Basic Endgame','…','…','…','…','…','…','…','…','…'],
+// White vs Black for each phase, 10 exercises each
+const PLAYERS = {
+  tmg:[
+    ['Yyaroslavchess2010','2744','Vaibhav2026','2179'],
+    ['Windsurfer001','2646','Byniolus','3082'],
+    ['ChessLover0108','3129','Vahan','2690'],
+    ['chrisclaireredfield','2631','Anton_Demchenko','3037'],
+    ['Brave_spirit12','2864','Zampronha1971','2476'],
+    ['wunderkind2011','2756','fryebc','2261'],
+    ['Micki-taryan','3236','snehahalder2009','2706'],
+    ['OmerAkkara34','2825','B_Griffin','2428'],
+    ['K_A_S_T_O_R','2904','Faris_abdelmoneim','2507'],
+    ['Toxicmybrother','2972','RCC_2024','2586'],
+  ],
+  mid:[
+    ['tomesao','2702','Oleksandr_Bortnyk','3203'],
+    ['GMVignirVatnar','3038','borasavran35','2634'],
+    ['Kubas1010','2788','Shiraaaaazi','2383'],
+    ['UnPatoQueNoSabeNadar','2517','Fighterman91','2912'],
+    ['mestrefeitosa19','2491','ArtemyKhan','2873'],
+    ['NOTHINGxx8','2963','wild3000','2576'],
+    ['Artemiki','2877','Tim1234321','2493'],
+    ['Grandelicious','3090','biostatistician','2650'],
+    ['feuervogel10','2587','Igor_Lysyj','2972'],
+    ['Icaro_83','2428','lucumpe04','2825'],
+  ],
+  teg:[
+    ['GMWSO','3292','Robert_Sava','2721'],
+    ['rzgm2b','2412','crazy_m_attack','2813'],
+    ['Sunnika','2375','TanVinhVictory','2783'],
+    ['GM_Huschenbeth','2868','lucabieging','2486'],
+    ['Tassimo777','2930','stewartgranger1','2533'],
+    ['Smiechu','2580','Kietnguyen2011','2939'],
+    ['Arnakin3-0','2494','RandomNoob04','2881'],
+    ['jaskol95','2646','MatthewG-p4p','3075'],
+    ['Daniil_Kolbasenk0','3025','astralpulse','2621'],
+    ['Preobrazhenska_D2011','2751','shirovin','2210'],
+  ],
+  end:[
+    ['AnviHinge','2015','Lucsd','2734'],
+    ['bbartekk','2700','sokidze','3189'],
+    ['Mikhal867','2618','KillerBishop888','3024'],
+    ['mwpchess','2728','nihalsarin','3358'],
+    ['fast_knight_11','2706','LiemLe','3241'],
+    ['Jakhongir-Vakhidov','3112','Answer03','2651'],
+    ['M_Pank_537','2932','ElVital','2534'],
+    ['Skapo_1190','2697','ChristopherYoo','3186'],
+    ['yosephtaher','3155','nicholas_ilic','2688'],
+    ['TheNextLevelFan','2600','superchess02','2998'],
+  ],
 };
 
 const KEY = 'su-ttc101326';
@@ -162,7 +211,17 @@ PHASES.forEach(ph=>{
     const li = document.createElement('li');
     const num = String(i).padStart(2,'0');
     const href = `${ph.dir}/ex${num}.html`;
-    li.innerHTML=`<a href="${href}"><span class="ex-num">${num}</span><span>${LABELS[ph.id][i-1]||'Exercise '+i}</span>${isDone?'<span class="ex-done">✓</span>':''}</a>`;
+    const p = PLAYERS[ph.id][i-1];
+    const w = p[0], wr = p[1], b = p[2], br = p[3];
+    li.innerHTML=`<a href="${href}">
+      <span class="ex-num">${num}</span>
+      <span class="ex-players">
+        <span class="ex-white">${w} <span style="font-weight:400;color:var(--muted);font-size:.72rem">(${wr})</span></span>
+        <span class="ex-vs">vs</span>
+        <span class="ex-black">${b} <span style="font-size:.7rem">(${br})</span></span>
+      </span>
+      ${isDone?'<span class="ex-done">✓</span>':''}
+    </a>`;
     ul.appendChild(li);
   }
   document.getElementById('p-'+ph.id).style.width=(pDone/ph.n*100)+'%';
