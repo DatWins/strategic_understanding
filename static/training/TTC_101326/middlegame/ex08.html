@@ -193,7 +193,7 @@ function drawBoard() {
   for (let r = 0; r < 8; r++) {
     for (let f = 0; f < 8; f++) {
       const sqName = FILES[f] + (8 - r);
-      ctx.fillStyle = (r + f) % 2 === 0 ? '#f0d9b5' : '#b58863';
+      ctx.fillStyle = (r + f) % 2 === 0 ? '#d6e4f7' : '#4a7ab5';
       ctx.fillRect(f * sz, r * sz, sz, sz);
       if (HL.includes(sqName)) {
         ctx.fillStyle = hlCol;
@@ -207,11 +207,11 @@ function drawBoard() {
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         if (piece[0] === 'w') {
-          ctx.strokeStyle = '#555';
-          ctx.lineWidth = 3;
+          ctx.strokeStyle = '#1a3a6b';
+          ctx.lineWidth = 5;
           ctx.strokeText(glyph, f * sz + sz/2, r * sz + sz/2);
         }
-        ctx.fillStyle = piece[0] === 'w' ? '#fff' : '#1a1a1a';
+        ctx.fillStyle = piece[0] === 'w' ? '#ffffff' : '#0d1b2e';
         ctx.fillText(glyph, f * sz + sz/2, r * sz + sz/2);
       }
     }
